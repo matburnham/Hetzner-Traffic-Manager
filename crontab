@@ -1,1 +1,1 @@
-*/5 * * * * /app/hetzner_traffic_manager.sh >> /proc/1/fd/1 2>&1
+*/5 * * * * sh -c '/app/hetzner_traffic_manager.sh 2>&1'
