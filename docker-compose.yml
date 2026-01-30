@@ -1,0 +1,13 @@
+services:
+  hetzner-traffic-manager:
+    build: .
+    container_name: hetzner-traffic-manager
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    environment:
+      API_TOKEN: ${API_TOKEN}
+      SERVER_ID: ${SERVER_ID}
+      LIMIT_TB_OFFSET: ${LIMIT_TB_OFFSET:-1}
+      LIMIT_GB_OFFSET: ${LIMIT_GB_OFFSET:-0}

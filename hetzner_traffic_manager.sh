@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Configuration
-API_TOKEN=""  # Set your Hetzner Cloud API token here
-SERVER_ID=""  # Set your Hetzner server ID without # here
-LIMIT_TB_OFFSET=-1
-LIMIT_GB_OFFSET=0
+: "${API_TOKEN:?API_TOKEN is required}" # Hetzner Cloud API token, read from env, fallback to empty
+: "${SERVER_ID:?SERVER_ID is required}" # Hetzner Server ID, read from env, fallback to empty
+LIMIT_TB_OFFSET="${LIMIT_TB_OFFSET:--1}"
+LIMIT_GB_OFFSET="${LIMIT_GB_OFFSET:-0}"
 
 # Calculation basis (1 TB = 1024^4 Bytes, 1 GB = 1024^3 Bytes)
 LIMIT_BYTES_OFFSET=$((LIMIT_TB_OFFSET * 1024**4 + LIMIT_GB_OFFSET * 1024**3))
