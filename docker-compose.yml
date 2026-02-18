@@ -1,7 +1,6 @@
 services:
   hetzner-traffic-manager:
     build: .
-    container_name: hetzner-traffic-manager
     network_mode: host
     cap_add:
       - NET_ADMIN
